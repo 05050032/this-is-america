@@ -1,0 +1,54 @@
+import java.lang.*;
+import java.io.*;
+public class hw 
+{
+	public static void main(String[] args) 
+	{
+		TWO two = new TWO();
+		THREE thr = new THREE();
+		two.start();
+		thr.start();
+	}
+}
+class TWO extends Thread
+{
+	int n=2;
+	private void serving() 
+	{
+		System.out.println("°¸¼Æ:   " + n);
+		n+=2;
+	}
+	public void run()
+	{
+		while(n<=100)
+		{
+			serving();
+			try
+		{
+			sleep(200); //¥ð¯v0~1¬íÄÁ
+		}
+			catch(InterruptedException e){}
+		}
+	}
+}
+class THREE extends Thread
+{
+	int f=3;
+	private void serving() 
+	{
+		System.out.println("3ªº­¿¼Æ: " + f);
+		f+=3;
+	}
+	public void run()
+	{
+		while(f<=100)
+		{
+			serving();
+			try
+		{
+			sleep(300); //¥ð¯v0~1¬íÄÁ
+		}
+			catch(InterruptedException e){}
+		}
+	}
+}
